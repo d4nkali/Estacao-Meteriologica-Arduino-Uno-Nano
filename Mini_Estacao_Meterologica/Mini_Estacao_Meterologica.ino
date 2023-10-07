@@ -1,11 +1,7 @@
 /*
 
- Programa para a mini estação meteriologica usando os sensores de medição de luz(LDR), Umidade com temperatura(DHT11) e Pressão Atmosferica(BM_180) com o Modulo Bluetooth(HC-06) por Danilo 22/06/2023 ver: 0.1
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version (<https://www.gnu.org/licenses/>).
+ Programa para a mini estação meteriologica usando os sensores de medição de luz(LDR), 
+ Umidade com temperatura(DHT11) e Pressão Atmosferica(BM_180) com o Modulo Bluetooth(HC-06)
 
  Localização dos pinos no Arduino (usando modelo NANO)
  

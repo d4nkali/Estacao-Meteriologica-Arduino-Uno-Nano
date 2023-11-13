@@ -1,7 +1,7 @@
 /*
 
   Programa para a mini estação meteriologica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), 
-  Umidade com temperatura (DHT11), Pressão Atmosferica (BM_180) e Intensidade UV (GUVA-S12SD)
+  Umidade com temperatura (DHT11), Pressão Atmosferica (BM_180), Intensidade UV (GUVA-S12SD) e o Relogio (RTC DS1307) 
   com suporte extra ao Modulo Bluetooth (HC-06) 
 
   Autor: d4nkali
@@ -40,6 +40,13 @@
     Primeira Perna Resistor de 10k: TX
     Segunda Perna Resistor de 20K: GND
 
+    RTC DS1307 ou RTC 3231:
+
+      VCC = 5V
+      GND = GND
+      SDA = A4 ou SDA
+      SCL = A5 ou SCL
+
   OBS *1: Coloca um resistor ou potenciometro na segunda perna do LDR.
 
   OBS *2: Para usar o pino RX corretamente deve fazer um divisor de tensão para não queimar o modulo.
@@ -50,14 +57,15 @@
 
 // Inclusão das bibliotecas
 
-  #include "dht.h"
-  #include <Wire.h>
-  #include <Adafruit_BMP085.h>
+ #include "dht.h"
+ #include <Wire.h>
+ #include <Adafruit_BMP085.h>
+ #include "RTClib.h"
 
 // Definir os pinos
 
-  const int pinDHT11 = A2; //Pino A2 sera o do sensor de temperatura
-  const int pinLDR = A0; //Pino A0 sera o do sensor de luminozidade
+  const int pinDHT11 = A2; // Pino A2 sera o do sensor de temperatura
+  const int pinLDR = A0; // Pino A0 sera o do sensor de luminozidade
   const int pinUV = A1; // Pino A1 sera o sensor de UV 
 
 // Definir as variaveis
@@ -74,7 +82,12 @@
 
   Adafruit_BMP085 bmp; 
 
-void setup() {
+// Chama qual modulo vai ser usado 
+
+  RTC_DS1307 rtc; // Modulo rtc DS1307
+  //RTC_DS3231 rtc; // Modulo rtc DS3132
+
+void setup() { 
 
   Serial.begin(9600); // Inicia a comunicação serial
 
@@ -86,11 +99,23 @@ void setup() {
 
   }
  
-  Wire.begin(); // Inicia a comunicação I2C no arduino
+  Wire.begin(); // Inicia a comunicação I2C no arduino  
+  rtc.begin(); // Inicia o modulo do relogio
 
-  pinMode(pinLDR, INPUT); //Coloca o LDR como entrada de informação
+  pinMode(pinLDR, INPUT); //Coloca o LDR como entrada
   pinMode(pinUV, INPUT); // Coloca o sensor UV como entrada
 
+  if (! rtc.isrunning()) { // Se o RTC iniciar, então:
+  
+    Serial.println("O modulo RTC não iniciou corretamente"); // Caso não inicie imprimir no serial: "O modulo RTC não iniciou corretamente"
+    
+    rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); // Ajuste automatico do RTC
+    
+    //rtc.adjust(DateTime(2023, 11, 13, 18, 00, 00)); // Ajuste manual do RTC para a data e hora definida pelo usuario sendo o formato AAAA/MM/DD HH/mm/SS.
+    //OBS: Quando for a primeira vez ou quando acabar a bateria, configure o RTC para data e hora atual descomentando a linha; quando terminar comnte na linha novamente
+    
+  }
+  
   delay(2000); // Aguarda de 2 segundos para carregar as informações
   
 }
@@ -107,9 +132,24 @@ void loop() {
     valor_uv = analogRead(pinUV); // Ler o sensor UV e armazena na variavel
     inten_uv = map(valor_uv, 0, 1023, 0, 20); // Converter a leitura do sensor para o padrão de medição da OMS
 
+  DateTime now = rtc.now(); // Ler a hora e a data do modulo para imprimir no serial
   luz=analogRead(pinLDR); // Lê as informações do sensor de luminozidade
 
   // Impressão no monitor serial
+
+    Serial.print("Data e hora atual: ");  // Imprime a mensagem: "Data e hora atual: "
+    Serial.print(now.day(), DEC); // Imprime o dia
+    Serial.print('/'); // Imprime (/)
+    Serial.print(now.month(), DEC); // Imprime o mes
+    Serial.print('/'); // Imprime (/)
+    Serial.print(now.year(), DEC);  // Imprime o ano
+    Serial.print(' ');  // Da espaço
+    Serial.print(now.hour(), DEC);  // Imprime a hora
+    Serial.print(':');  // Imprime (:)
+    Serial.print(now.minute(), DEC); // Imprime o minuto
+    Serial.print(':'); // Imprime (:)
+    Serial.print(now.second(), DEC);  // Imprime os segundos
+    Serial.print( " / " ); // Imprime uma barra
 
     DHT.read11(pinDHT11); // Lê as informações do sensor de temperatura
     Serial.print("Umidade: ");  // Imprime o texto "Umidade"
@@ -118,7 +158,7 @@ void loop() {
 
     Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
     Serial.print(DHT.temperature, 0); // imprime no monitor o valor de temperatura medido e remove a parte decimal
-    Serial.print("*C");  // Imprime o "*C"
+    Serial.print("*C"); // Imprime o "*C"
 
     Serial.print(" / Pressão: "); // Imprime o texto "Pressão"
     Serial.print(pressao); // Lê as informações da variavel "pressao"
@@ -129,7 +169,7 @@ void loop() {
 
     Serial.print(" / Luz: "); // Imprime o texto "Luz"
     Serial.print(luz); // Ler e imprime o valor do LDR
-    Serial.println("L"); // Imprime o "L"
+    Serial.println(" L"); // Imprime o "L"
 
     delay(3000); // Aguarda 3 segundos. 
     //OBS: Não diminuir esse valor até 2000

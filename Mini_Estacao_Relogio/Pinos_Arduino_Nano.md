@@ -1,8 +1,7 @@
-# Localização dos pinos no Arduino UNO
+# Localização dos pinos no Arduino NANO
  
 ### Alimentação: 
 
-  - Conector ou
   - Alimentação +: VIN
   - Alimentação -: GND
 
@@ -30,6 +29,12 @@
   - VCC: 5V
   - GND: GND
   - S: A1
+
+### RTC DS1307 ou RTC 3231:
+  - VCC = 5V
+  - GND = GND
+  - SDA = A4
+  - SCL = A5
 
 ### HC-06 ou HC-05:
 

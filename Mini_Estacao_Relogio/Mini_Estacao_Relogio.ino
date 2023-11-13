@@ -1,7 +1,14 @@
 /*
 
- Programa para a mini estação meteriologica usando os sensores de medição de luz(LDR), Umidade com temperatura(DHT11) e Pressão Atmosferica(BM_180) com o Modulo Bluetooth(HC-06) e o Relogio (RTC DS1307) por d4n
+ Programa para a mini estação meteriologica usando os sensores de medição de luz(LDR), Umidade com temperatura(DHT11) e 
+ Pressão Atmosferica(BM_180) com o Modulo Bluetooth(HC-06) e o Relogio (RTC DS1307)
 
+ Autor: d4nkali
+ Data: 
+
+*/
+
+/*
 
  Localização dos pinos no Arduino (usando modelo NANO)
  
@@ -20,6 +27,10 @@
   BMP180 GND: GND
   BMP180 SCL: A5
   BMP180 SDA: A4
+
+  GUVA-S12SD VCC: 5V
+  GUVA-S12SD GND: GND
+  GUVA-S12SD S: A1
 
   HC-06 VCC: 5V
   HC-06 GND: GND

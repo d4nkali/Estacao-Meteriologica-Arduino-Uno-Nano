@@ -1,51 +1,51 @@
 /*
 
- Programa para a mini estação meteriologica usando os sensores de medição de luz(LDR), 
- Umidade com temperatura(DHT11) e Pressão Atmosferica(BM_180) com o Modulo Bluetooth(HC-06) 
- e o Relogio (RTC DS1307)
+  Programa para a mini estação meteriologica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), 
+  Umidade com temperatura (DHT11), Pressão Atmosferica (BM_180), Intensidade UV (GUVA-S12SD) e o Relogio (RTC DS1307) 
+  com suporte extra ao Modulo Bluetooth (HC-06) 
 
- Autor: d4nkali
- Data: 13/11/2023
+  Autor: d4nkali
+  Data: 13/11/2023
 
 */
 
 /*
 
- Localização dos pinos no Arduino
+  Localização dos pinos no Arduino:
  
-  Alimentação +: VIN
-  Alimentação -: GND
+    Alimentação +: VIN
+    Alimentação -: GND
 
-  LDR Primeira Perna: 5V
-  LDR Depois do resistor na segunda perna do LDR: A0
-  LDR Segunda perna do resistor: GND
+    LDR Primeira Perna: 5V
+    LDR Depois do resistor na segunda perna do LDR: A0
+    LDR Segunda perna do resistor: GND
   
-  DHT11 Perna Esquerda(-): GND
-  DHT11 Perna do Meio: 5V
-  DHT11 Perna Direita(S): A2
+    DHT11 Perna Esquerda(-): GND
+    DHT11 Perna do Meio: 5V
+    DHT11 Perna Direita(S): A2
 
-  BMP180 VIN: 3V3
-  BMP180 GND: GND
-  BMP180 SCL: A5
-  BMP180 SDA: A4
+    BMP180 VIN: 3V3
+    BMP180 GND: GND
+    BMP180 SCL: A5
+    BMP180 SDA: A4
 
-  GUVA-S12SD VCC: 5V
-  GUVA-S12SD GND: GND
-  GUVA-S12SD S: A1
+    GUVA-S12SD VCC: 5V
+    GUVA-S12SD GND: GND
+    GUVA-S12SD S: A1
 
-  HC-06 VCC: 5V
-  HC-06 GND: GND
-  HC-06 TXD: RX
-  HC-06 RXD: Depois do Resistor de 10k e do de 20K
-  Primeira Perna Resistor de 10k: TX
-  Segunda Perna Resistor de 20K: GND
+    HC-06 VCC: 5V
+    HC-06 GND: GND
+    HC-06 TXD: RX
+    HC-06 RXD: Depois do Resistor de 10k e do de 20K
+    Primeira Perna Resistor de 10k: TX
+    Segunda Perna Resistor de 20K: GND
 
-  RTC DS1307 ou RTC 3231:
+    RTC DS1307 ou RTC 3231:
 
-  VCC = 5V
-  GND = GND
-  SDA = A4 ou SDA
-  SCL = A5 ou SCL
+      VCC = 5V
+      GND = GND
+      SDA = A4 ou SDA
+      SCL = A5 ou SCL
 
   OBS *1: Coloca um resistor ou potenciometro na segunda perna do LDR.
 
@@ -89,9 +89,9 @@
 
 void setup() { 
 
-  Serial.begin(9600); //Inicia a comunicação serial
+  Serial.begin(9600); // Inicia a comunicação serial
 
-  if (!bmp.begin()) {  // Se o BMP iniciar, então:
+  if (!bmp.begin()) { // Se o BMP iniciar, então:
 
     // Caso não inicie:
     Serial.println("Não foi possível inicializar o BMP180"); // Imprimir no serial: "Não foi possível inicializar o BMP180"
@@ -165,13 +165,13 @@ void loop() {
     Serial.print(" mbar");  // Imprime o "mbar"
 
     Serial.print(" / Nivel UV: "); // Imprime a frase "Nivel UV: "
-    Serial.println(inten_uv); // Imprime o valor convertido
+    Serial.print(inten_uv); // Imprime o valor convertido
 
     Serial.print(" / Luz: "); // Imprime o texto "Luz"
     Serial.print(luz); // Ler e imprime o valor do LDR
     Serial.println(" L"); // Imprime o "L"
 
-    delay(3000); // intervalo de 3 segundos. 
+    delay(3000); // Aguarda 3 segundos. 
     //OBS: Não diminuir esse valor até 2000
   
 }

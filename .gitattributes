@@ -1,0 +1,4 @@
+# Adicionando o Markdown como linguagem
+
+*.md linguist-detectable=true
+*.md linguist-documentation=false

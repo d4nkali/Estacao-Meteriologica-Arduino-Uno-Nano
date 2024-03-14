@@ -116,15 +116,15 @@ void print_serial () { // Cria a função para imprimir as informações no moni
   Serial.print("%"); // Imprime o "%"
 
   Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
-  Serial.print(temp, 0); // imprime no monitor o valor de temperatura 
+  Serial.print(temp, 0); // Imprime no monitor o valor de temperatura 
   Serial.print("*C");  // Imprime o "*C"
 
   Serial.print(" / Orvalho: "); // Imprime o texto "Orvalho"
-  Serial.print(orvalho, 0); // 
+  Serial.print(orvalho, 0); // Imprime o valor em "orvalho"
   Serial.print("*C"); // Imprime o "*C"
 
   Serial.print(" / Sensação Termica: "); // Imprime o texto "Sensação Termica"
-  Serial.print(sen_termica, 0);
+  Serial.print(sen_termica, 0); // Imprime a sensação termica
   Serial.print("*C"); // Imprime o "*C"
 
   Serial.print(" / Pressão: "); // Imprime o texto "Pressão"

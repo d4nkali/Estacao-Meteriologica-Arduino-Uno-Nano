@@ -5,7 +5,7 @@
   com suporte extra ao Modulo Bluetooth (HC-06) 
 
   Autor: d4nkali
-  Data: 13/11/2023
+  Data: 14/03/2024
 
 */
 
@@ -54,24 +54,15 @@
   #include <Wire.h>
   #include <Adafruit_BMP085.h>
 
-// Definir os pinos
+// Definindo os pinos e variaveis
 
-  const int pinDHT11 = A2; //Pino A2 sera o do sensor de temperatura
-  const int pinLDR = A0; //Pino A0 sera o do sensor de luminozidade
-  const int pinUV = A1; // Pino A1 sera o sensor de UV 
-
-// Definir as variaveis
-
-  int luz = 0; // Cria a variavel luz
-  int valor_uv; // Cria a variavel inicial do UV
-  int inten_uv; // Cria a variavel final do UV
+  const int pinLDR = A0, pinUV = A1, pinDHT11 = A2; // Define o LDR no A0, UV no A1 e DHT11 no A2
+  float umidade, temp, orvalho, sen_termica, pressao;
+  int valor_uv, inten_uv, luz = 0;
  
-// Traz a variavel da biblioteca
+// Chama as configurações das bibliotecas
 
   dht DHT; 
-
-// Chama a configuração da biblioteca
-
   Adafruit_BMP085 bmp; 
 
 void setup() {
@@ -95,33 +86,53 @@ void setup() {
   
 }
 
-void loop() { 
+void medir_temperatura() {
+
+  umidade = DHT.humidity; // Armazena a umidade na variavel "umidade"
+  temp = DHT.temperature; // Armazena a temperatura na variavel "temp"
+  orvalho = temp - (100 - umidade) / 5; // Faz o calculo do Ponto de Orvalho e armazena na variavel
+  sen_termica = 13.12 + 0.6215 * temp - 11.37 * pow(umidade, 0.16) + 0.3965 * temp * pow(umidade, 0.16); // Calculo da sensação termica e armazena na variavel
+
+}
+
+void medir_pressao() {
 
   // Medição da pressão atmosferica do BMP_180
 
-    float pressao = bmp.readPressure() / 100.0; // Cria a variavel pressão e divida por 100 para converter para hPa
+    pressao = bmp.readPressure() / 100.0; // Cria a variavel pressão e divida por 100 para converter para hPa
     pressao *= 10; // Converter hPa para mbar
+
+}
+
+void medir_uv() {
 
   // Medição e converção do UV do GUVA-S12SD
 
     valor_uv = analogRead(pinUV); // Ler o sensor UV e armazena na variavel
     inten_uv = map(valor_uv, 0, 1023, 0, 20); // Converter a leitura do sensor para o padrão de medição da OMS
 
-  luz=analogRead(pinLDR); // Lê as informações do sensor de luminozidade
+}
 
-  // Impressão no monitor serial
+void print_serial () { // Cria a função para imprimir no monitor serial
 
-    DHT.read11(pinDHT11); // Lê as informações do sensor de temperatura
     Serial.print("Umidade: ");  // Imprime o texto "Umidade"
-    Serial.print(DHT.humidity); // Imprime no monitor o valor de umidade medido
+    Serial.print(umidade); // Imprime no monitor o valor de umidade 
     Serial.print("%"); // Imprime o "%"
 
     Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
-    Serial.print(DHT.temperature, 0); // imprime no monitor o valor de temperatura medido e remove a parte decimal
+    Serial.print(temp, 0); // imprime no monitor o valor de temperatura 
     Serial.print("*C");  // Imprime o "*C"
 
+    Serial.print(" / Orvalho: "); // Imprime o texto "Orvalho"
+    Serial.print(orvalho, 0); // 
+    Serial.print("*C"); // Imprime o "*C"
+
+    Serial.print(" / Sensação Termica: "); // Imprime o texto "Sensação Termica"
+    Serial.print(sen_termica, 0);
+    Serial.print("*C"); // Imprime o "*C"
+
     Serial.print(" / Pressão: "); // Imprime o texto "Pressão"
-    Serial.print(pressao); // Lê as informações da variavel "pressao"
+    Serial.print(pressao, 0); // Lê as informações da variavel "pressao"
     Serial.print(" mbar");  // Imprime o "mbar"
 
     Serial.print(" / Nivel UV: "); // Imprime a frase "Nivel UV: "
@@ -133,7 +144,21 @@ void loop() {
 
     delay(3000); // Aguarda 3 segundos. 
     //OBS: Não diminuir esse valor até 2000
-  
+
+}
+
+void loop() { 
+
+  luz=analogRead(pinLDR); // Lê as informações do sensor de luminozidade
+  DHT.read11(pinDHT11); // Lê as informações do sensor de temperatura
+
+  // Chama e executa as funções
+
+    medir_temperatura();
+    medir_pressao();
+    medir_uv();
+    print_serial();
+    
 }
 
 // FIM!

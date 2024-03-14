@@ -57,8 +57,8 @@
 // Definindo os pinos e variaveis
 
   const int pinLDR = A0, pinUV = A1, pinDHT11 = A2; // Define o LDR no A0, UV no A1 e DHT11 no A2
-  float umidade, temp, orvalho, sen_termica, pressao;
-  int valor_uv, inten_uv, luz = 0;
+  float umidade, temp, orvalho, sen_termica, pressao; // Define as variaveis de valores flutuantes
+  int valor_uv, inten_uv, luz = 0;  // Define as variaveis de valores inteiros
  
 // Chama as configurações das bibliotecas
 
@@ -86,7 +86,7 @@ void setup() {
   
 }
 
-void medir_temperatura() {
+void medir_temperatura() { // Cria uma função para a medição da temperatura, ponto de orvalho e sensaçao termica do DHT_11
 
   umidade = DHT.humidity; // Armazena a umidade na variavel "umidade"
   temp = DHT.temperature; // Armazena a temperatura na variavel "temp"
@@ -95,55 +95,51 @@ void medir_temperatura() {
 
 }
 
-void medir_pressao() {
+void medir_pressao() { // Cria uma função para a medição da pressão atmosferica do BMP_180
 
-  // Medição da pressão atmosferica do BMP_180
-
-    pressao = bmp.readPressure() / 100.0; // Cria a variavel pressão e divida por 100 para converter para hPa
-    pressao *= 10; // Converter hPa para mbar
+  pressao = bmp.readPressure() / 100.0; // Cria a variavel pressão e divida por 100 para converter para hPa
+  pressao *= 10; // Converter hPa para mbar
 
 }
 
-void medir_uv() {
+void medir_uv() { // Cria uma função para a medição e converção do UV do GUVA-S12SD
 
-  // Medição e converção do UV do GUVA-S12SD
-
-    valor_uv = analogRead(pinUV); // Ler o sensor UV e armazena na variavel
-    inten_uv = map(valor_uv, 0, 1023, 0, 20); // Converter a leitura do sensor para o padrão de medição da OMS
+  valor_uv = analogRead(pinUV); // Ler o sensor UV e armazena na variavel
+  inten_uv = map(valor_uv, 0, 1023, 0, 20); // Converter a leitura do sensor para o padrão de medição da OMS
 
 }
 
-void print_serial () { // Cria a função para imprimir no monitor serial
+void print_serial () { // Cria a função para imprimir as informações no monitor serial
 
-    Serial.print("Umidade: ");  // Imprime o texto "Umidade"
-    Serial.print(umidade); // Imprime no monitor o valor de umidade 
-    Serial.print("%"); // Imprime o "%"
+  Serial.print("Umidade: ");  // Imprime o texto "Umidade"
+  Serial.print(umidade); // Imprime no monitor o valor de umidade 
+  Serial.print("%"); // Imprime o "%"
 
-    Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
-    Serial.print(temp, 0); // imprime no monitor o valor de temperatura 
-    Serial.print("*C");  // Imprime o "*C"
+  Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
+  Serial.print(temp, 0); // imprime no monitor o valor de temperatura 
+  Serial.print("*C");  // Imprime o "*C"
 
-    Serial.print(" / Orvalho: "); // Imprime o texto "Orvalho"
-    Serial.print(orvalho, 0); // 
-    Serial.print("*C"); // Imprime o "*C"
+  Serial.print(" / Orvalho: "); // Imprime o texto "Orvalho"
+  Serial.print(orvalho, 0); // 
+  Serial.print("*C"); // Imprime o "*C"
 
-    Serial.print(" / Sensação Termica: "); // Imprime o texto "Sensação Termica"
-    Serial.print(sen_termica, 0);
-    Serial.print("*C"); // Imprime o "*C"
+  Serial.print(" / Sensação Termica: "); // Imprime o texto "Sensação Termica"
+  Serial.print(sen_termica, 0);
+  Serial.print("*C"); // Imprime o "*C"
 
-    Serial.print(" / Pressão: "); // Imprime o texto "Pressão"
-    Serial.print(pressao, 0); // Lê as informações da variavel "pressao"
-    Serial.print(" mbar");  // Imprime o "mbar"
+  Serial.print(" / Pressão: "); // Imprime o texto "Pressão"
+  Serial.print(pressao, 0); // Lê as informações da variavel "pressao"
+  Serial.print(" mbar");  // Imprime o "mbar"
 
-    Serial.print(" / Nivel UV: "); // Imprime a frase "Nivel UV: "
-    Serial.print(inten_uv); // Imprime o valor convertido
+  Serial.print(" / Nivel UV: "); // Imprime a frase "Nivel UV: "
+  Serial.print(inten_uv); // Imprime o valor convertido
 
-    Serial.print(" / Luz: "); // Imprime o texto "Luz"
-    Serial.print(luz); // Ler e imprime o valor do LDR
-    Serial.println("L"); // Imprime o "L"
+  Serial.print(" / Luz: "); // Imprime o texto "Luz"
+  Serial.print(luz); // Ler e imprime o valor do LDR
+  Serial.println("L"); // Imprime o "L"
 
-    delay(3000); // Aguarda 3 segundos. 
-    //OBS: Não diminuir esse valor até 2000
+  delay(3000); // Aguarda 3 segundos. 
+  //OBS: Não diminuir esse valor até 2000
 
 }
 
@@ -154,10 +150,10 @@ void loop() {
 
   // Chama e executa as funções
 
-    medir_temperatura();
-    medir_pressao();
-    medir_uv();
-    print_serial();
+  medir_temperatura();
+  medir_pressao();
+  medir_uv();
+  print_serial();
     
 }
 

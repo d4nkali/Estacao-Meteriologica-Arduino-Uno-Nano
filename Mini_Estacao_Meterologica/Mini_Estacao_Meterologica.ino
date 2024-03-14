@@ -150,10 +150,10 @@ void loop() {
 
   // Chama e executa as funções
 
-  medir_temperatura();
-  medir_pressao();
-  medir_uv();
-  print_serial();
+    medir_temperatura();
+    medir_pressao();
+    medir_uv();
+    print_serial();
     
 }
 

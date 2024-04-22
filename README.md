@@ -1,13 +1,13 @@
-# Estação Metrológica Arduino Uno/Nano
+# Estação Meteorológica Arduino Uno/Nano
 
 Mini Estação Meteorológica Usando **Arduino Nano/Uno**.
 
 ### Programa 1: Padrão
 
-Mini estação metrológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com temperatura (DHT11), Pressão Atmosférica (BMP_180) e Intensidade UV (GUVA-S12SD).
+Mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com temperatura (DHT11), Pressão Atmosférica (BMP_180) e Intensidade UV (GUVA-S12SD).
 
 ### Programa 2: Relógio
-Mini estação metrológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com temperatura (DHT11) e Pressão Atmosférica (BMP_180), Intensidade UV (GUVA-S12SD) e Relógio (RTC_1407).
+Mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com temperatura (DHT11) e Pressão Atmosférica (BMP_180), Intensidade UV (GUVA-S12SD) e Relógio (RTC_1407).
 
 ### Programa 3: CSV
 Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com temperatura (DHT11), Pressão Atmosférica (BM_180), Intensidade UV (GUVA-S12SD) e o Relógio (RTC DS1307) com suporte a salvar os dados no computador via arquivo CSV.

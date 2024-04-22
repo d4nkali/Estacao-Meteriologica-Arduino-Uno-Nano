@@ -1,6 +1,6 @@
 """
 
-Programa em Python que ler o Monitor Serial da Estação Metrológica e armazena os dados em um arquivo CSV.
+Programa em Python que ler o Monitor Serial da Estação meteorológica e armazena os dados em um arquivo CSV.
 
 OBS: Para parar o programa encerre a tarefa ou se for no terminal clique CRTL + C.
 

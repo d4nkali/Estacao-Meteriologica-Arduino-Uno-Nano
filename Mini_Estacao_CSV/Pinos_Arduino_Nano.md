@@ -37,6 +37,6 @@
 
 #
 
-  **OBS 1:** Coloca um *resistor ou potenciometro* na segunda perna do LDR.
+  **OBS 1:** Coloca um *resistor ou potenciômetro* na segunda perna do LDR.
 
   **OBS 2:** Para salvar os dados, precisa conectar a placa no computador e executar o arquivo python.

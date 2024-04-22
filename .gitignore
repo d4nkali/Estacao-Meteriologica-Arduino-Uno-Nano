@@ -5,6 +5,7 @@
 # Ignorando o virtual envolvment
 
 .venv/*
+Mini_Estacao_CSV/.venv/*
 
 # Ignoando as pasta libraries
 

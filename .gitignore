@@ -2,3 +2,12 @@
 
 .vscode/*
 
+# Ignorando o virtual envolvment
+
+.venv/*
+
+# Ignoando as pasta libraries
+
+Mini_Estacao_CSV/libraries/*
+Mini_Estacao_Relogio/libraries/*
+Mini_Estacao_Meterologica/libraries*

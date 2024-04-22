@@ -47,10 +47,10 @@
 
 // Inclusão das bibliotecas
 
- #include "dht.h"
- #include <Wire.h>
- #include <Adafruit_BMP085.h>
- #include "RTClib.h"
+  #include "dht.h"
+  #include <Wire.h>
+  #include <Adafruit_BMP085.h>
+  #include "RTClib.h"
 
 // Definindo os pinos e variáveis
 
@@ -72,36 +72,36 @@ void setup() {
 
   Serial.begin(9600); // Inicia a comunicação serial
 
-  if (!bmp.begin()) { // Se o BMP iniciar, então:
+  if (!bmp.begin()) { //! Se o BMP iniciar, então:
 
     // Caso não inicie:
-    Serial.println("Não foi possível inicializar o BMP180"); // Imprimir no serial: "Não foi possível inicializar o BMP180"
+    //Serial.println("Não foi possível inicializar o BMP180"); // Imprimir no serial: "Não foi possível inicializar o BMP180"
     while (1); // Trava o programa
 
   }
 
-  Wire.begin(); // Inicia a comunicação I2C no arduino  
+  Wire.begin(); // Inicia a comunicação I2C no Arduino  
   rtc.begin(); // Inicia o modulo do relógio
 
-  pinMode(pinLDR, INPUT); //Coloca o LDR como entrada
+  pinMode(pinLDR, INPUT); // Coloca o LDR como entrada
   pinMode(pinUV, INPUT); // Coloca o sensor UV como entrada
 
-  if (! rtc.isrunning()) { // Se o RTC iniciar, então:
-  
-    Serial.println("O modulo RTC não iniciou corretamente"); // Caso não inicie imprimir no serial: "O modulo RTC não iniciou corretamente"
+  if (! rtc.isrunning()) { //! Se o RTC iniciar, então:
+
+    //Serial.println("O modulo RTC não iniciou corretamente"); // Caso não inicie imprimir no serial: "O modulo RTC não iniciou corretamente"
     
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); // Ajuste automático do RTC
-    
+
     //rtc.adjust(DateTime(2023, 11, 13, 18, 00, 00)); // Ajuste manual do RTC para a data e hora definida pelo usuário sendo o formato AAAA/MM/DD HH/mm/SS.
     //OBS: Quando for a primeira vez ou quando acabar a bateria, configure o RTC para data e hora atual descomentando a linha; quando terminar comente na linha novamente
-    
+
   }
-  
+
   delay(2000); // Aguarda de 2 segundos para carregar as informações
-  
+
 }
 
-void medir_temperatura() { // Cria uma função para a medição da temperatura, ponto de orvalho e sensação térmica do DHT_11
+void medir_temperatura() { //* Cria uma função para a medição da temperatura, ponto de orvalho e sensação térmica do DHT_11
 
   umidade = DHT.humidity; // Armazena a umidade na variável "umidade"
   temp = DHT.temperature; // Armazena a temperatura na variável "temp"
@@ -110,24 +110,23 @@ void medir_temperatura() { // Cria uma função para a medição da temperatura,
 
 }
 
-void medir_pressao() { // Cria uma função para a medição da pressão atmosférica do BMP_180
+void medir_pressao() { //* Cria uma função para a medição da pressão atmosférica do BMP_180
 
   pressao = bmp.readPressure() / 100.0; // Cria a variável pressão e divida por 100 para converter para hPa
   pressao *= 10; // Converter hPa para mbar
 
 }
 
-void medir_uv() { // Cria uma função para a medição e converção do UV do GUVA-S12SD
+void medir_uv() { //* Cria uma função para a medição e converção do UV do GUVA-S12SD
 
   valor_uv = analogRead(pinUV); // Ler o sensor UV e armazena na variável
   inten_uv = map(valor_uv, 0, 1023, 0, 20); // Converter a leitura do sensor para o padrão de medição da OMS
 
 }
 
-void print_serial() { // Cria a função para imprimir as informações no monitor serial
+void print_serial() { //* Cria a função para imprimir as informações no monitor serial
 
   DateTime now = rtc.now(); // Ler a hora e a data do modulo para imprimir no serial
-  Serial.print("Data e hora atual: ");  // Imprime a mensagem: "Data e hora atual: "
   Serial.print(now.day(), DEC); // Imprime o dia
   Serial.print('/'); // Imprime (/)
   Serial.print(now.month(), DEC); // Imprime o mes
@@ -139,46 +138,45 @@ void print_serial() { // Cria a função para imprimir as informações no monit
   Serial.print(now.minute(), DEC); // Imprime o minuto
   Serial.print(':'); // Imprime (:)
   Serial.print(now.second(), DEC);  // Imprime os segundos
-  Serial.print( " / " ); // Imprime uma barra
+  Serial.print( "," );
 
-  Serial.print("Umidade: ");  // Imprime o texto "Umidade"
   Serial.print(umidade); // Imprime no monitor o valor de umidade medido
   Serial.print("%"); // Imprime o "%"
 
-  Serial.print(" / Temperatura: "); // Imprime o texto "Temperatura"
+  Serial.print(",");
   Serial.print(temp, 0); // Imprime no monitor o valor de temperatura medido e remove a parte decimal
   Serial.print("*C"); // Imprime o "*C"
 
-  Serial.print(" / Orvalho: "); // Imprime o texto "Orvalho"
+  Serial.print(",");
   Serial.print(orvalho, 0); // Imprime o valor em "orvalho"
   Serial.print("*C"); // Imprime o "*C"
 
-  Serial.print(" / Sensação Termica: "); // Imprime o texto "Sensação Termica"
+  Serial.print(",");
   Serial.print(sen_termica, 0); // Imprime a sensação termica
   Serial.print("*C"); // Imprime o "*C"
 
-  Serial.print(" / Pressão: "); // Imprime o texto "Pressão"
+  Serial.print(",");
   Serial.print(pressao, 0); // Lê as informações da variável "pressao"
   Serial.print(" mbar");  // Imprime o "mbar"
 
-  Serial.print(" / Nivel UV: "); // Imprime a frase "Nível UV: "
+  Serial.print(","); 
   Serial.print(inten_uv); // Imprime o valor convertido
 
-  Serial.print(" / Luz: "); // Imprime o texto "Luz"
+  Serial.print(",");
   Serial.print(luz); // Ler e imprime o valor do LDR
   Serial.println(" L"); // Imprime o "L"
 
   delay(3000); // Aguarda 3 segundos. 
   //OBS: Não diminuir esse valor até 2000
 
-  }
+}
 
 void loop() { 
 
-  luz=analogRead(pinLDR); // Lê as informações do sensor de luminozidade
+  luz=analogRead(pinLDR); // Lê as informações do sensor de luminosidade
   DHT.read11(pinDHT11); // Lê as informações do sensor de temperatura
 
-  // Chama e executa as funções
+  //* Chama e executa as funções
 
     medir_temperatura();
     medir_pressao();

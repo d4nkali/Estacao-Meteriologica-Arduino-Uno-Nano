@@ -2,6 +2,3 @@
 
 .vscode/*
 
-# Ignorar pasta libaries
-
-/libraries/*

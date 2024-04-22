@@ -1,10 +1,19 @@
-# Teste de importar dados do Arduino via monitor serial para o computador por um arquivo csv
+"""
+
+Programa em Python que ler o Monitor Serial da Estação Metrológica e armazena os dados em um arquivo CSV.
+
+OBS: Para parar o programa encerre a tarefa ou se for no terminal clique CRTL + C.
+
+Autor: d4nkali
+Data: 22/04/2024
+
+"""
 
 # Importa as bibliotecas
 import serial, csv
 
 # Pergunta e armazena nas variáveis
-porta = input("Qual a porta que o Arduino esta conectado? Exp: COM12 ")
+porta = input("Qual a porta que o Arduino está conectado? Exp: COM12 ")
 freq = int(input("Qual a frequência estabelecida no Arduino? "))
 
 ser = serial.Serial(porta, freq) #! Conecta ao Arduino

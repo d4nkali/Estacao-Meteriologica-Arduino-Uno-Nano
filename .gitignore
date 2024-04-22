@@ -1,3 +1,7 @@
 # Configurações do vscode
 
 .vscode/*
+
+# Ignorar pasta libaries
+
+/libraries/*

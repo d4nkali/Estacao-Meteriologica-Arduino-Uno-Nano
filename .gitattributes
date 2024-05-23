@@ -1,4 +1,6 @@
-# Adicionando o Markdown como linguagem
+# Adicionando o Markdown e SQL como linguagem
 
 *.md linguist-detectable=true
 *.md linguist-documentation=false
+*.sql linguist-detectable=true
+*.sql linguist-language=sql

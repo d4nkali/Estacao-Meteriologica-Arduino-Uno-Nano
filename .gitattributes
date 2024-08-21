@@ -4,3 +4,11 @@
 *.md linguist-documentation=false
 *.sql linguist-detectable=true
 *.sql linguist-language=sql
+
+# Define que o Git sempre converterá delimitadores de linha em CRLF
+
+*.txt eol=crlf
+*.md eol=crlf
+*.ino eol=crlf
+*.py eol=crlf
+*.sql eol=crlf

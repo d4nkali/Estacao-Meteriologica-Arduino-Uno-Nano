@@ -1,5 +1,5 @@
 # Localização dos pinos no Arduino NANO
- 
+
 ### Alimentação: 
 
   - Alimentação +: VIN
@@ -47,6 +47,6 @@
 
 #
 
-  **OBS 1:** Coloca um *resistor ou potenciometro* na segunda perna do LDR.
+  **OBS 1:** Coloca um *resistor ou potenciômetro* na segunda perna do LDR.
 
   **OBS 2:** Para usar o pino **RX** corretamente deve fazer um **divisor de tensão** para não queimar o modulo. Então para isso deve colocar o *fio do arduino em um resistor 10k* e na outra ponta *ligar outro resistor de 20 ou 22k*, no meio deles vai o *fio do sensor* e na outra ponta do de 22k vai um *fio ao GND* da placa.

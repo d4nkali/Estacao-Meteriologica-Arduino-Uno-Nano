@@ -1,5 +1,5 @@
 # Localização dos pinos no Arduino NANO
- 
+
 ### Alimentação e Comunicação Serial:
 
   - USB para o Computador

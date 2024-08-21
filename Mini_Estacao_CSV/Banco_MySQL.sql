@@ -1,3 +1,12 @@
+/*
+
+Script SQL para criar o banco de dados da Estação Metrológica no MySQL.
+
+Autor: d4nkali
+Data: 22/04/2024
+
+*/
+
 CREATE DATABASE arduino;
 
 USE arduino;
@@ -14,3 +23,5 @@ CREATE TABLE `arduino`.`metereologia` (
   PRIMARY KEY (`Data e Hora`));
 
 SELECT * FROM arduino.metereologia;
+
+-- FIM!

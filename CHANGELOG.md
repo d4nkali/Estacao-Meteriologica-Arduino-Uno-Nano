@@ -1,3 +1,20 @@
+# Ver 1.2.1:
+
+- Adicionando os **Templates** do Github no Repositório;
+
+- Adicionando arquivo de *Changelog*;
+
+- Adicionando conversão de *lf* para **crlf** no *gitattributes*;
+
+- Adicionando Script *sql* para o banco *PostgreSQL*;
+
+- Renomeando o Script *banco.sql* para *Banco_MySQL*;
+
+- Correção de espaçamento, ortografia e no *editorconfig*;
+
+- Atualização de data da Licença.
+
+
 # Ver 1.2.0:
 
 - Adicionando programa 3 onde a placa fica conectada no **PC** e um programa externo salva a leitura do monitor serial em um arquivo *csv*.

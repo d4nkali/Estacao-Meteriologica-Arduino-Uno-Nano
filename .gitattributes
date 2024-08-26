@@ -5,6 +5,10 @@
 *.sql linguist-detectable=true
 *.sql linguist-language=sql
 
+# Ignorando CHANGELOG.md para contagem de linguagem
+
+CHANGELOG.md linguist-detectable=false
+
 # Define que o Git sempre converterá delimitadores de linha em CRLF
 
 *.txt eol=crlf

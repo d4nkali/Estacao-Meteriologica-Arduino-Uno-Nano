@@ -40,6 +40,8 @@
   - Primeira Perna Resistor de 10k: TX
   - Segunda Perna Resistor de 20K: GND
 
+<img src="../imgs/Mini_Estacao_Meteologica.png" alt="Mini Estação Metrológica" width="300"/>
+
 #
 
   **OBS 1:** Coloca um *resistor ou potenciômetro* na segunda perna do LDR.

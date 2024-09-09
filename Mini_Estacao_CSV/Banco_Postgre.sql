@@ -1,6 +1,6 @@
 /*
 
-Script SQL para criar o banco de dados da Estação Metrológica no PostgreSQL.
+Script SQL para criar o banco de dados da Estação Meteorológica no PostgreSQL.
 
 OBS: Executar os Scripts individualmente.
 
@@ -11,7 +11,7 @@ Data: 22/04/2024
 
 CREATE DATABASE arduino;
 
-CREATE TABLE metereologia (
+CREATE TABLE meteorologica (
   data_hora VARCHAR(45) NOT NULL,
   umidade VARCHAR(45) NOT NULL,
   temperatura VARCHAR(45) NOT NULL,
@@ -23,6 +23,6 @@ CREATE TABLE metereologia (
   PRIMARY KEY (data_hora)
 );
 
-SELECT * FROM metereologia;
+SELECT * FROM meteorologica;
 
 -- FIM!

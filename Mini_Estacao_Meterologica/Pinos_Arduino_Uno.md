@@ -40,7 +40,7 @@
   - Primeira Perna Resistor de 10k: TX
   - Segunda Perna Resistor de 20K: GND
 
-<img src="../imgs/Mini_Estacao_Meteologica_Uno.png" alt="Mini Estação Metrológica" width="300"/>
+<img src="../imgs/Mini_Estacao_Meteorologica_Uno.png" alt="Imagem da Mini Estação Meteorológica com Arduino Uno" width="300"/>
 
 #
 

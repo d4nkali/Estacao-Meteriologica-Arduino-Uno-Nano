@@ -1,6 +1,6 @@
 /*
 
-  Programa para a mini estação metrológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), 
+  Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), 
   Umidade com temperatura (DHT11), Pressão Atmosférica (BM_180), Intensidade UV (GUVA-S12SD) e o Relógio (RTC DS1307) 
   com suporte extra ao Modulo Bluetooth (HC-06) 
 

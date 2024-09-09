@@ -8,6 +8,7 @@
 # Ignorando CHANGELOG.md para contagem de linguagem
 
 CHANGELOG.md linguist-detectable=false
+TODO.md linguist-detectable=false
 
 # Define que o Git sempre converterá delimitadores de linha em CRLF
 

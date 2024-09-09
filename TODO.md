@@ -3,8 +3,9 @@
 ### A Fazer
 
 - [ ] Release Template;
-- [ ] Leitor Serial em Java;
+- [ ] Leitor Serial em **Java** para adicionar em *CSV*;
 - [ ] Monitorar fases da lua;
+- [ ] Adicionar script sql para **SQLite**.
 
 ### Em Progresso
 
@@ -14,4 +15,4 @@
 
 ### Feito
 
-
+- [x] Corrigir o nome meteorológica nos arquivos;

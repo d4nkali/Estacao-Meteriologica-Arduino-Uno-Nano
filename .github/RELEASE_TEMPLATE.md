@@ -1,10 +1,6 @@
-## Título do Pull Request *
+## Versão do Lançamento *
 
-### Descrição do Pull Request: *
-
-Descreva claramente o que este pull request faz.
-
-### Mudanças Propostas: *
+### Mudanças : *
 
 Descreva as alterações feitas por este pull request.
 

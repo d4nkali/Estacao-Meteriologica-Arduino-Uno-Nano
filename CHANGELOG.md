@@ -4,11 +4,17 @@
 
 - Adicionando arquivo de *Changelog*;
 
-- Adicionando conversão de *lf* para **crlf** no *gitattributes*;
+- Adicionando arquivos de schematics do *Fritzing*;
 
-- Adicionando Script *sql* para o banco *PostgreSQL*;
+- Adicionando imagens das schematics para os documentos *markdown*;
 
-- Renomeando o Script *banco.sql* para *Banco_MySQL*;
+- Adicionando conversão de **lf** para **crlf** no *gitattributes*;
+
+- Adicionando Script **sql** para o banco *PostgreSQL*;
+
+- Adicionando Script **sql** para o banco *SQLite*;
+
+- Renomeando o Script *banco.sql* para *Banco_MySQL.sql*;
 
 - Correção de espaçamento, ortografia e no *editorconfig*;
 

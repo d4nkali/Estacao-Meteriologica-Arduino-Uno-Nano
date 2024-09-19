@@ -1,5 +1,5 @@
 # Localização dos pinos no Arduino NANO
- 
+
 ### Alimentação e Comunicação Serial:
 
   - USB para o Computador
@@ -34,6 +34,8 @@
   - GND = GND
   - SDA = A4
   - SCL = A5
+
+<img src="../imgs/Mini_Estacao_Relogio_Nano.png" alt="Imagem da Mini Estação Meteorológica com Arduino Nano e Modulo Relógio RTC DS1307 para comunicação serial" width="300"/>
 
 #
 

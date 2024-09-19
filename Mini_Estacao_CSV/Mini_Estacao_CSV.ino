@@ -1,6 +1,6 @@
 /*
 
-  Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), 
+  Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de Medição de Luz (LDR), 
   Umidade com temperatura (DHT11), Pressão Atmosférica (BM_180), Intensidade UV (GUVA-S12SD) e o Relógio (RTC DS1307) 
   com suporte a salvar os dados no computador via arquivo CSV.
 
@@ -18,7 +18,7 @@
     LDR Primeira Perna: 5V
     LDR Depois do resistor na segunda perna do LDR: A0
     LDR Segunda perna do resistor: GND
-  
+
     DHT11 Perna Esquerda(-): GND
     DHT11 Perna do Meio: 5V
     DHT11 Perna Direita(S): A2
@@ -63,10 +63,10 @@
   dht DHT; 
   Adafruit_BMP085 bmp; 
 
-  // Chama qual modulo vai ser usado
+// Chama qual modulo vai ser usado
 
-    RTC_DS1307 rtc; // Modulo rtc DS1307
-    //RTC_DS3231 rtc; // Modulo rtc DS3132
+  RTC_DS1307 rtc; // Modulo rtc DS1307
+  //RTC_DS3231 rtc; // Modulo rtc DS3132
 
 void setup() { 
 

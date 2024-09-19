@@ -1,8 +1,8 @@
 """
 
-Programa em Python que ler o Monitor Serial da Estação meteorológica e armazena os dados em um arquivo CSV.
+Programa em Python que ler o Monitor Serial da Estação Meteorológica e armazena os dados em um arquivo CSV.
 
-OBS: Para parar o programa encerre a tarefa ou se for no terminal clique CRTL + C.
+OBS: Para encerrar o programa, finalize a tarefa ou se for no terminal clique CTRL + C.
 
 Autor: d4nkali
 Data: 22/04/2024
@@ -26,6 +26,7 @@ with open("log.csv", "w", newline="") as arq_csv:
 
   while True: #* Cria um loop infinito
 
+    print("Para parar o programa, finalize a tarefa ou se for no terminal clique CTRL + C.")
     linha = ser.readline().decode("utf-8").strip() # Copia a linha do monitor serial
     val = linha.split(',') # Divide os valores com ','
     w_csv.writerow(val) # Escreve as mudanças no csv

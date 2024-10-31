@@ -23,5 +23,5 @@ Ambos possuem comunicação via Monitor Serial 9600 band e os programas 1 e 2 po
 
 ## Bibliotecas Usadas no Python:
 
-- [serial](https://pypi.org/project/serial/)
+- [serial(pyserial)](https://pypi.org/project/pyserial/)
 - [csv](https://docs.python.org/3/library/csv.html)

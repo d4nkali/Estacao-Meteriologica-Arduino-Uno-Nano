@@ -183,5 +183,6 @@ Mini_Estacao_CSV/libraries/*
 Mini_Estacao_Relogio/libraries/*
 Mini_Estacao_Meterologica/libraries*
 
-# Ignorar banco de dados SQLite
+# Ignorar banco de dados SQLite e Log por CSV
 *.db
+log.csv

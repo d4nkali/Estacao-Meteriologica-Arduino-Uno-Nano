@@ -15,7 +15,7 @@ CREATE TABLE meteorologica (
   sensacao_termica TEXT NOT NULL,
   pressao_atmosferica TEXT NOT NULL,
   indice_uv TEXT NOT NULL,
-  nivel_de_luz TEXT NOT NULL,
+  nivel_luz TEXT NOT NULL,
   PRIMARY KEY (data_hora)
 );
 

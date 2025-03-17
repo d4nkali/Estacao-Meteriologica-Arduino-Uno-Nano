@@ -10,9 +10,9 @@ Mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de Medi�
 Mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de Medição de Luz (LDR), Umidade com Temperatura (DHT11) e Pressão Atmosférica (BMP_180), Intensidade UV (GUVA-S12SD) e Relógio (RTC_1407).
 
 ### Programa 3: CSV
-Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com Temperatura (DHT11), Pressão Atmosférica (BM_180), Intensidade UV (GUVA-S12SD) e o Relógio (RTC DS1307) com suporte a salvar os dados no computador via arquivo CSV.
+Programa para a mini estação meteorológica usando o Arduino Uno ou Nano, os sensores de medição de luz (LDR), Umidade com Temperatura (DHT11), Pressão Atmosférica (BM_180), Intensidade UV (GUVA-S12SD) e o Relógio (RTC DS1307) com suporte a salvar os dados no computador via arquivo CSV e/ou enviar as informações do CSV para um banco *SQLite*.
 
-Ambos possuem comunicação via Monitor Serial 9600 band e os programas 1 e 2 possuem suporte extra com o Modulo Bluetooth HC-06 ou HC-05.
+Ambos possuem comunicação via Monitor Serial 9600 band e os programas 1 e 2 possuem suporte extra com o Modulo *Bluetooth* HC-06 ou HC-05.
 
 ## Bibliotecas Usadas no Arduino:
 
@@ -25,3 +25,7 @@ Ambos possuem comunicação via Monitor Serial 9600 band e os programas 1 e 2 po
 
 - [serial(pyserial)](https://pypi.org/project/pyserial/)
 - [csv](https://docs.python.org/3/library/csv.html)
+- [dotenv-python](https://pypi.org/project/python-dotenv/)
+- [os](https://docs.python.org/3/library/os.html)
+- [pandas](https://pandas.pydata.org/docs/getting_started/install.html)
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html)

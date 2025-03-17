@@ -11,7 +11,7 @@ Data: 22/04/2024
 
 CREATE DATABASE arduino;
 
-CREATE TABLE meteorologica (
+CREATE TABLE meteorologia (
   data_hora VARCHAR(45) NOT NULL,
   umidade VARCHAR(45) NOT NULL,
   temperatura VARCHAR(45) NOT NULL,
@@ -23,6 +23,6 @@ CREATE TABLE meteorologica (
   PRIMARY KEY (data_hora)
 );
 
-SELECT * FROM meteorologica;
+SELECT * FROM meteorologia;
 
 -- FIM!

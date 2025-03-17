@@ -7,7 +7,7 @@ Data: 09/09/2024
 
 */
 
-CREATE TABLE meteorologica (
+CREATE TABLE meteorologia (
   data_hora TEXT NOT NULL,
   umidade TEXT NOT NULL,
   temperatura TEXT NOT NULL,
@@ -19,6 +19,6 @@ CREATE TABLE meteorologica (
   PRIMARY KEY (data_hora)
 );
 
-SELECT * FROM meteorologica;
+SELECT * FROM meteorologia;
 
 -- FIM!

@@ -11,7 +11,7 @@ CREATE DATABASE arduino;
 
 USE arduino;
 
-CREATE TABLE `arduino`.`meteorologica` (
+CREATE TABLE `arduino`.`meteorologia` (
   `Data e Hora` VARCHAR(45) NOT NULL,
   `Umidade` VARCHAR(45) NOT NULL,
   `Temperatura` VARCHAR(45) NOT NULL,
@@ -22,6 +22,6 @@ CREATE TABLE `arduino`.`meteorologica` (
   `Nivel de Luz` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Data e Hora`));
 
-SELECT * FROM arduino.meteorologica;
+SELECT * FROM arduino.meteorologia;
 
 -- FIM!

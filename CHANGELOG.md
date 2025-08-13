@@ -1,3 +1,10 @@
+# Ver 1.2.2:
+
+- Adicionando *dotenv* para o programa em *Python*
+- Adicionando opção do programa em *Python* enviar as informaçoes para o banco de dados *SQLite*;
+- Corrigindo consultas **sql**;
+- Atualização de data da Licença.
+
 # Ver 1.2.1:
 
 - Adicionando os **Templates** do Github no Repositório;
